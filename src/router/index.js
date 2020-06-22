@@ -1,15 +1,37 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+//import Home from '../views/Home.vue'
+import Layout from '../components/Layout/index.vue';
 
 Vue.use(VueRouter)
 
   const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+    {
+      path: '/',
+      name: 'Layout',
+      component: Layout,
+      redirect: '/offline',
+      children: [
+        {
+          path: '/offline',
+          name: 'Offline',
+          component: () => import('@/views/Offline/index.vue')
+        },
+        {
+          path: '/online',
+          name: 'Online',
+          component: () => import('@/views/Online/index.vue')
+        },
+        {
+          path: '/center',
+          name: 'Center',
+          component: () => import('@/views/Center/index.vue'),
+          meta: {
+            keepAlive: true
+          }
+        },
+      ]
+    },
   {
     path: '/about',
     name: 'About',
