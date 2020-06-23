@@ -9,22 +9,6 @@
     </div>
     <div class="offline-wrapper">
       <div class="offline-list">
-        <!--         <van-list
-          v-model="loading"
-          :finished="finished"
-          finished-text="没有更多了"
-          @load="fetchData"
-          :error.sync="error"
-          error-text="请求失败，点击重新加载"
-        >
-          <router-link 
-            v-for="item in list"
-            :key="item.id"
-            :to="`/detail?id=${item.id}&type=1`"
-          >
-            <my-card :item="item" />
-          </router-link>
-        </van-list>-->
         <van-list>
           <van-card
             v-for="item in list1"
